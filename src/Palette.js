@@ -4,7 +4,7 @@ import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import Navbar from './Navbar';
 
-import './Pallete.css';
+import './Palette.css';
 
 export default class Palette extends Component {
   constructor(props) {
@@ -24,21 +24,21 @@ export default class Palette extends Component {
     this.setState({ format: val });
   }
   render() {
-    const { colors, palleteName, emoji } = this.props.pallete;
+    const { colors, paletteName, emoji } = this.props.palette;
     const { level, format } = this.state;
     const colorBoxes = colors[level].map(color => (
       <ColorBox background={color[format]} name={color.name} key={color.id} />
     ));
     return (
-      <div className='Pallete'>
+      <div className='Palette'>
         <Navbar
           level={level}
           changeLevel={this.changeLevel}
           handleChange={this.changeFormat}
         />
-        <div className='Pallete-colors'>{colorBoxes}</div>
-        <footer className='Palleter-footer'>
-          {palleteName}
+        <div className='Palette-colors'>{colorBoxes}</div>
+        <footer className='Paletter-footer'>
+          {paletteName}
           <span className='emoji'>{emoji}</span>
         </footer>
       </div>
